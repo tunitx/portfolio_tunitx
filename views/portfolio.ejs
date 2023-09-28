@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>tunitx</title>
+
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://kit.fontawesome.com/bea14d8597.js" crossorigin="anonymous"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  
+</head>
+
+<body>
+    <header id="body-header">
+        <nav id="nav">
+            <ul class="ul-list initial animate__fadeInDown  "  >
+                <li class="animate__fadeInDow">
+                    <a href="#">Home</a>
+                </li>
+                <li class="animate__fadeInDwn">
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#skills">Skills</a>
+
+                </li>
+                <li>
+                    <a href="/form">Change Details</a>
+
+                </li>
+               
+
+            </ul>
+        </nav>
+        <div id="name-box">
+            <h1 id="name-box-header " class="animate__backInLeft">
+                <%= portfolioItem.name %>
+            </h1>
+        </div>
+        <div id="social-icons-wrapper">
+            <ul class="social-icons ul-list animate__backInRight"  >
+               
+              
+                <li>
+                    <a href=""><img src="uploads/linkedin (3).svg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="uploads/github (1).svg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="uploads/instagram (1).svg" alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div id="dots-pattern"  >
+            <section id="about">
+                <div id="pfp" >
+                    <img class="animate-pfp" src="<%= portfolioItem.cloudinaryImage %>" alt="pfp">
+                </div>
+                <div id="about-header">
+                    <h2 class="animate" >Hi,</h2>
+                </div>
+                <div id="about-desc" style="height: auto;" >
+                    <div>
+
+                        <p  id="para-1 autotyping-text"  class="animate" >
+                            <%= portfolioItem.description %>
+                        </p>
+                        <h2 style="color: rgb(46,110,161); font-size: 1.5rem;"  id="para-2" class="animate">
+                            Contact me at : <%= portfolioItem.email %>
+
+                        </h2> 
+
+                        <h2 style="color: rgb(46,110,161); font-size: 1.5rem;"  id="para-2" class="animate">
+                            Or just make a call : <%= portfolioItem.phoneNumber %>
+
+                        </h2> 
+
+
+                    </div>
+                    
+                </div>
+            </section>
+            <section id="skills">
+                <div id="skill-header">
+                    <!-- <img src="" alt=""> -->
+                    <!-- <h1>Skills</h1> -->
+                    <h1 class="animate" style="margin-bottom: 0;">What do I know?</h1>
+                    <p class="animate" style="font-size: 2rem; padding-left: 15%;">nm, just the usual stuff</p>
+                </div>
+                <div id="skill-container">
+                    <div class="skill-progress ">
+                        <!-- <div class="skill-img">
+                        <img src="styles/image/atom.png" alt="">
+                    </div> -->
+                        <div class="skill-1">
+                            <div style="width: 12.6rem;">
+                                <img src="uploads/java.svg"
+                                    style="height: 3.8rem; width: 4rem; position: relative; left: 15%; top: 12%;"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+
+                        <div class="skill-1">
+
+                            <div style="width: 11rem; ">
+                                <!-- <i class="fa-brands fa-node fa-beat-fade fa-2xs" style="color: #d2d7df;"></i> -->
+                                <img src="uploads/node (1).svg "
+                                    style="height: 4rem; width: 4.5rem; position: relative; left: 15%; top: 15%;"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class=" skill-1">
+                            <div style="width: 8rem;">
+                                <!-- <i class="fa-brands fa-react fa-bounce fa-xs"></i>  -->
+                                <!-- <i class="fa-brands fa-node-js"></i>
+                            <i class="fab fa-google-play"></i> -->
+
+                                <img src="uploads/react (1).svg"
+                                    style="height: 3.6rem; width: 6rem; position: relative; left: 13%; top: 15%;"
+                                    alt="">
+                                <span> </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-1">
+                            <div style="width: 12.9rem">
+                                <!-- <span>Bootstrap</span> -->
+                                <img src="uploads/bootstrap.svg"
+                                    style="height: 3.5rem; width: 3.5rem; position: relative; left: 15%; top: 15%;"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-1">
+                            <div style="width: 9.5rem">
+                                <!-- <span>CSS</span> -->
+                                <img src="uploads/css3-alt.svg"
+                                    style="height: 3.5rem; width: 3.5rem; position: relative; left: 15%; top: 15%;"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-1">
+                            <div style="width: 12.4rem">
+                                <!-- <span>Express.js</span> -->
+                                <img src="uploads/express.png"
+                                    style="height: 4rem; width: 6rem; position: relative; left: 15%; top: 14%;" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-1">
+                            <div style="width: 14rem">
+                                <!-- <span>EJS</span> -->
+                                <img src="uploads/square-js.svg"
+                                    style="height: 3.5rem; width: 4.5rem; position: relative; left: 15%; top: 15%;"
+                                    alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-1">
+                            <div style="width: 14rem">
+                                <!-- <span>Javascript</span> -->
+                                <img src="uploads/html5.svg"
+                                    style="height: 3.5rem; width: 4.5rem; position: relative; left: 15%; top: 15%;"
+                                    alt="">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+
+        <section id="education">
+            <div>
+                <h1 id=" education-header" class="animate"> Education</h1>
+            </div>
+            <div class="education-wrapper">
+               
+                <div class="school-container-1 animate ">
+                    <div>
+                        <a href="https://noida.cambridgeschool.edu.in/">
+                            <h2>Arya College Of Engineering & IT, Jaipur</h2>
+                        </a>
+                        <img src="uploads/arya.webp" alt="school-1">
+                        <h3>B'tech in CSE, 2021-2025</h3>
+                    </div>
+                </div>
+                <div class="school-container-1  animate ">
+                    <div>
+                        <a href="https://noida.cambridgeschool.edu.in/">
+                            <h2>Cambridge School, Noida</h2>
+                        </a>
+                        <img src="uploads/cambridge-school.svg" alt="school-1">
+                        <h3> Stream: Science(PCM)</h3>
+                    </div>
+                </div>
+                <!-- <div class="school-container-1 animate">
+                    <div>
+                        <a href="https://noida.cambridgeschool.edu.in/">
+                            <h2>Cambridge School, Noida</h2>
+                        </a>
+                        <img src="styles/image/cambridge-school.svg" alt="school-1">
+                        <h3> Stream: Science(PCM)</h3>
+                    </div>
+                </div> -->
+            </div>
+            </div>
+        </section>
+        <section id="footer-devchef">
+            <div id="devchef-header">
+                <h1 style="color: rgb(72,117,142); font-family: monospace; font-size: 2.5rem;" >Get in touch!</h1>
+                <h2 style="color: rgb(72,117,142); font-family: monospace; font-size: 1.2rem;">Gmail me at : <%= portfolioItem.email  %></h2>
+                <span style="color: rgb(72,117,142); font-family: monospace; font-size: 1.2rem;" > Or</span>
+                <h2 style="color: rgb(72,117,142); font-family: monospace; font-size: 1.2rem;">Call me at : +(91) <%= portfolioItem.phoneNumber %></h2>
+            </div>
+            <div id="social-icons">
+                <span> 
+                    <a href="https://github.com/tunitx"><img src="uploads/github (1).svg" alt=""></a>
+                </span>
+                <span> 
+                  <a href="https://instagram.com/_devchef_?igshid=YmMyMTA2M2Y="> <img src="uploads/instagram (1).svg" alt=""></a>  
+                </span>
+                <span> 
+                   <a href="https://www.linkedin.com/in/tanish-anand-427065228">
+                    <img src="uploads/linkedin (3).svg" alt="">
+                   </a> 
+                </span>
+            </div>
+          <span id="copyright-span" style="color:rgb(21,27,61) ; font-family: monospace;"> <h2> Copyright @tunitx 2023.</h2></span>
+        </section>
+    </main>
+    <script src= "assets/index.js"></script>
+   
+</body>
+
+
+</html>
