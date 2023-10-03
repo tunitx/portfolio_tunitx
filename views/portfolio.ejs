@@ -11,17 +11,20 @@
 
     <link rel="stylesheet" href="styles/styles.css">
     <script src="https://kit.fontawesome.com/bea14d8597.js" crossorigin="anonymous"></script>
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <% if (userData && userData.selectedTheme) { %>
+        <link id="theme-stylesheet" rel="stylesheet" href="/styles/<%=userData.selectedTheme%>.css">
+            <% } else { %>
+                <link id="theme-stylesheet" rel="stylesheet" href="/styles/default-theme.css">
+                             <% } %>
+   
+
 </head>
 
 <body>
     <header id="body-header">
         <nav id="nav">
-            <ul class="ul-list initial animate__fadeInDown  "  >
+            <ul class="ul-list initial animate__fadeInDown  ">
                 <li class="animate__fadeInDow">
                     <a href="#">Home</a>
                 </li>
@@ -36,19 +39,28 @@
                     <a href="/form">Change Details</a>
 
                 </li>
-               
+                <li>
+                    <a href="/auth/logout">Log out</a>
+
+                </li>
+
 
             </ul>
         </nav>
+        
         <div id="name-box">
             <h1 id="name-box-header " class="animate__backInLeft">
-                <%= portfolioItem.name %>
+                <% if (userData && userData.lastPost) { %>
+                    <%= userData.lastPost.name %>
+                        <% } else { %>
+                            <%= userData.firstName %>
+                                         <% } %>
             </h1>
         </div>
         <div id="social-icons-wrapper">
-            <ul class="social-icons ul-list animate__backInRight"  >
-               
-              
+            <ul class="social-icons ul-list animate__backInRight">
+
+
                 <li>
                     <a href=""><img src="uploads/linkedin (3).svg" alt=""></a>
                 </li>
@@ -61,34 +73,105 @@
             </ul>
         </div>
     </header>
+<div class="theme-section" style="position: relative; top: -450px; text-align: center;"  >
+
+
+
+
+    <div class="theme-selector">
+        <label for="theme-select">Select Theme:</label>
+        <select id="theme-select">
+            <% if (userData && userData.selectedTheme) { %>
+
+          <option value="<%= userData.selectedTheme%>"> <%= userData.selectedTheme%> </option>
+          
+          <% if (userData.selectedTheme == "dark-theme") { %>
+<option value="default-theme">Default Theme</option>
+<% } else { %>
+    <option value="dark-theme">Dark Theme</option>
+    <% } %>
+          <% } else { %>
+          <option value="default-theme">Default Theme</option>
+          <option value="dark-theme">DarkTheme</option>
+           <% } %>
+         
+        </select>
+      </div>
+    </div>
+      <script>
+        const themeSelect = document.getElementById('theme-select');
+        const themeStylesheet = document.getElementById('theme-stylesheet');
+    
+        themeSelect.addEventListener('change', async () => {
+          const selectedTheme = themeSelect.value;
+    
+          try {
+            const response = await fetch('/update-theme', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ theme: selectedTheme }),
+            });
+    
+            if (response.ok) {
+              themeStylesheet.href = `/styles/${selectedTheme}.css`;
+            } else {
+              console.error('Failed to update theme');
+            }
+          } catch (error) {
+            console.error('Error updating theme:', error);
+          }
+        });
+      </script>
     <main>
-        <div id="dots-pattern"  >
+        <div id="dots-pattern">
             <section id="about">
-                <div id="pfp" >
-                    <img class="animate-pfp" src="<%= portfolioItem.cloudinaryImage %>" alt="pfp">
+                <div id="pfp">
+                    <% if (userData && userData.lastPost) { %>
+                        <img class="animate-pfp" src=" <%= userData.lastPost.cloudinaryImage %>" alt="pfp">
+                       
+                            <% } else { %>
+                                <img class="animate-pfp" src=" <%= userData.profilePhoto %>" alt="pfp">
+                                <%}%>
+                    
                 </div>
                 <div id="about-header">
-                    <h2 class="animate" >Hi,</h2>
+                    <h2 class="animate">Hi,</h2>
                 </div>
-                <div id="about-desc" style="height: auto;" >
+                <div id="about-desc" style="height: auto;">
                     <div>
 
-                        <p  id="para-1 autotyping-text"  class="animate" >
-                            <%= portfolioItem.description %>
+                        <p id="para-1 autotyping-text" class="animate">
+                            <% if (userData && userData.lastPost) { %>
+                                <%= userData.lastPost.description %>
+                                    <% } else { %>
+                                       Nothing to show
+                                                     <% } %>
+                           
+                           
                         </p>
-                        <h2 style="color: rgb(46,110,161); font-size: 1.5rem;"  id="para-2" class="animate">
-                            Contact me at : <%= portfolioItem.email %>
+                        <h2 style="color: rgb(46,110,161); font-size: 1.5rem;" id="para-2" class="animate">
+                            <% if (userData && userData.lastPost) { %>
+                                Contact me at : <%= userData.lastPost.email %>
+                                    <% } else { %>
+                                        Contact me at : <%= userData.email %>
+                                                     <% } %>
+                           
 
-                        </h2> 
+                        </h2>
 
-                        <h2 style="color: rgb(46,110,161); font-size: 1.5rem;"  id="para-2" class="animate">
-                            Or just make a call : <%= portfolioItem.phoneNumber %>
+                        <h2 style="color: rgb(46,110,161); font-size: 1.5rem;" id="para-2" class="animate">
+                            
+                            <% if (userData && userData.lastPost) { %>
+                                Contact me at : <%= userData.lastPost.phoneNumber %>
+                                    <% } else { %>
+                                       nothing to show
+                                                     <% } %>
 
-                        </h2> 
+                        </h2>
 
 
                     </div>
-                    
+
                 </div>
             </section>
             <section id="skills">
@@ -200,7 +283,7 @@
                 <h1 id=" education-header" class="animate"> Education</h1>
             </div>
             <div class="education-wrapper">
-               
+
                 <div class="school-container-1 animate ">
                     <div>
                         <a href="https://noida.cambridgeschool.edu.in/">
@@ -233,29 +316,47 @@
         </section>
         <section id="footer-devchef">
             <div id="devchef-header">
-                <h1 style="color: rgb(72,117,142); font-family: monospace; font-size: 2.5rem;" >Get in touch!</h1>
-                <h2 style="color: rgb(72,117,142); font-family: monospace; font-size: 1.2rem;">Gmail me at : <%= portfolioItem.email  %></h2>
-                <span style="color: rgb(72,117,142); font-family: monospace; font-size: 1.2rem;" > Or</span>
-                <h2 style="color: rgb(72,117,142); font-family: monospace; font-size: 1.2rem;">Call me at : +(91) <%= portfolioItem.phoneNumber %></h2>
+                <h1 style="color: rgb(72,117,142); font-family: monospace; font-size: 2.5rem;">Get in touch!</h1>
+                <h2 style="color: rgb(72,117,142); font-family: monospace; font-size: 1.2rem;">
+                    <% if (userData && userData.lastPost) { %>
+                        Gmail me at :  <%= userData.lastPost.email %>
+                            <% } else { %>
+                              <%= userData.email %>
+                                             <% } %>
+                   
+                </h2>
+                <span style="color: rgb(72,117,142); font-family: monospace; font-size: 1.2rem;"> Or</span>
+                <h2 style="color: rgb(72,117,142); font-family: monospace; font-size: 1.2rem;">
+                    <% if (userData && userData.lastPost) { %>
+                        Call me at :  <%= userData.lastPost.phoneNumber %>
+                            <% } else { %>
+                             fuck off
+                                             <% } %>
+                  
+                
+                </h2>
             </div>
             <div id="social-icons">
-                <span> 
+                <span>
                     <a href="https://github.com/tunitx"><img src="uploads/github (1).svg" alt=""></a>
                 </span>
-                <span> 
-                  <a href="https://instagram.com/_devchef_?igshid=YmMyMTA2M2Y="> <img src="uploads/instagram (1).svg" alt=""></a>  
+                <span>
+                    <a href="https://instagram.com/devchef?igshid=YmMyMTA2M2Y="> <img src="uploads/instagram (1).svg"
+                            alt=""></a>
                 </span>
-                <span> 
-                   <a href="https://www.linkedin.com/in/tanish-anand-427065228">
-                    <img src="uploads/linkedin (3).svg" alt="">
-                   </a> 
+                <span>
+                    <a href="https://www.linkedin.com/in/tanish-anand-427065228">
+                        <img src="uploads/linkedin (3).svg" alt="">
+                    </a>
                 </span>
             </div>
-          <span id="copyright-span" style="color:rgb(21,27,61) ; font-family: monospace;"> <h2> Copyright @tunitx 2023.</h2></span>
+            <span id="copyright-span" style="color:rgb(21,27,61) ; font-family: monospace;">
+                <h2> Copyright @tunitx 2023.</h2>
+            </span>
         </section>
     </main>
-    <script src= "assets/index.js"></script>
-   
+    <script src="assets/index.js"></script>
+
 </body>
 
 

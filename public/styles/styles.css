@@ -69,8 +69,21 @@ header {
     background-size: cover;
     background-position: center;
     background-attachment:fixed;
+   opacity: 0.9;
 }
-
+.theme-selector{
+    position: relative;
+    right: 20px;
+    top: 10px;
+    font-family: monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 100vw;
+  }
+  .theme-section{
+    /* height: 40px; */
+    width: 100vw;
+  }
 
 .ul-list {
     margin-top: 0px;
@@ -179,7 +192,7 @@ header {
 #social-icons-wrapper {
     height: 10vh;
     width: 100%;
-    background-color: rgb(255,255,255,0.4);
+    background-color: rgb(31,41,47,0.6);
     opacity: 0.9;
 }
 
@@ -518,3 +531,36 @@ border-radius: 75px;
     padding-top: 6%;
 }
 
+/* ... (Previous CSS styles) */
+
+/* Light Theme Styles */
+.theme-light {
+    background-color: #fff;
+    text-color: #333;
+    link-color: #007bff;
+    /* Add more light theme variables as needed */
+  }
+  
+  .theme-light body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  /* Dark Theme Styles */
+  .theme-dark {
+    background-color: #333;
+    text-color: #fff;
+    link-color: #3498db;
+    /* Add more dark theme variables as needed */
+  }
+  
+  .theme-dark body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  /* Custom Theme Styles (Add your custom theme styles here) */
+  .theme-custom {
+    /* Add custom theme variables and styles here */
+  }
+  

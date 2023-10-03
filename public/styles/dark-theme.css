@@ -1,0 +1,29 @@
+/* Dark Theme Styles */
+
+/* Body background color */
+body {
+  background-color: rgb(15,27,34);
+    color: #fff;
+  }
+  
+  /* Header background and text color */
+  header {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  /* Links color */
+  a {
+    color: #00ffcc;
+  }
+  
+  /* Theme Selector Dropdown styles */
+  
+  .theme-section{
+    height: 40px;
+    background-color: rgb(22,35,40);
+  }
+  /* Add more styles for other elements as needed */
+  .theme-section{
+    background-color: rgb(22,35,40);
+  }

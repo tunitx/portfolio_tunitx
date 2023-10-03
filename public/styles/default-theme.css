@@ -1,0 +1,48 @@
+/* Default Theme Styles */
+
+/* Body background color */
+body {
+    background-color: rgb(143,203,233);
+    color: #333;
+  }
+  
+  /* Header background and text color */
+  
+  
+  /* Links color */
+  a {
+    color: #007bff;
+  }
+  
+  /* Theme Selector Dropdown styles */
+  
+  #nav{
+    background-color: rgb(255, 255, 255,0.9);
+  }
+  /* Add more styles for other elements as needed */
+  .ul-list a{
+    color: black;
+  }
+  #header{
+    background-color: white;
+    opacity: 0.9;
+  }
+  #social-icons-wrapper{
+    background-color: rgb(215,218,221);
+  }
+  .theme-selector{
+    position: relative;
+    right: 20px;
+    top: 10px;
+    font-family: monospace;
+    color: rgb(66,74,79);
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 100vw;
+    background-color: rgb(190,199,204);
+  }
+  .theme-section{
+    /* height: 40px; */
+    width: 100vw;
+    background-color: rgb(190,199,204);
+  }

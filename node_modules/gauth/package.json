@@ -1,0 +1,23 @@
+{
+   "name": "gauth",
+   "version": "0.0.1",
+   "description": "Middleware component to authenticate users through their Google account",
+   "author": "Steve King <steve@mydev.co>",
+   "contributors": [ { "name": "Steve King", "email": "steve@mydev.co" } ],
+   "keywords": ["authentication", "oauth", "google", "express", "connect", "middleware"],
+   "repository": "git://github.com/steveukx/gauth",
+   "main":"./src/index.js",
+   "engines": { "node": ">= 0.8.0" },
+   "dependencies":{
+      "promise-lite": "",
+      "subscribable": "",
+      "xhrequest": ""
+   },
+   "devDependencies": {
+      "express": "3.1.0",
+      "unit-test": ""
+   },
+   "scripts":           {
+      "test": "node test/test.js"
+   }
+}
